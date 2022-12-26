@@ -24,13 +24,27 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+[Nest](https://github.com/nestjs/nest) framework TypeScript project for creating github repository and adding sample code to it programatically.
 
 ## Installation
 
 ```bash
 $ npm install
 ```
+
+## Environment setup
+```sh
+$ cp sample.env .env
+```
+The above command copies `sample.env` to `.env`. Explanation for each variable is given below
+```.env
+NODE_ENV: helps differentiate in development and production environment
+PORT: defines the port on which the nestjs server runs
+GITHUB_OAUTH_CLIENT_ID: your github oauth app client id
+GITHUB_OAUTH_CLIENT_SECRET: your github oauth app client secret
+GITHUB_OAUTH_REDIRECT_URI: your github oauth app redirect uri
+```
+> Note: For more info about github oauth apps refer [docs](https://docs.github.com/en/developers/apps/building-oauth-apps)
 
 ## Running the app
 
