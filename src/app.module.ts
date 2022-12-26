@@ -3,11 +3,8 @@ import { HttpModule } from '@nestjs/axios';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
-
 @Module({
-  imports: [
-    HttpModule
-  ],
+  imports: [HttpModule],
   controllers: [AppController],
   providers: [AppService],
 })

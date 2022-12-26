@@ -1,6 +1,6 @@
 /**
-* Configuration file to initialize environment variables
-*/
+ * Configuration file to initialize environment variables
+ */
 
 export var nodeEnv: string = process.env.NODE_ENV;
 export var port: number = parseInt(process.env.PORT) || 3000;
