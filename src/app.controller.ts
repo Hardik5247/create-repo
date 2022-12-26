@@ -9,6 +9,10 @@ export class AppController {
     private readonly appService: AppService,
   ) {}
 
+  /**
+   * Endpoint: /
+   * Homepage that has login via github option
+   */
   @Get('')
   home(@Res() res): void {
     var data = {
@@ -20,6 +24,10 @@ export class AppController {
     res.render('html/index.hbs', data);
   }
 
+  /**
+   * Endpoint: /authorize
+   * Redirects to github oauth authorization page
+   */
   @Get('authorize') 
   authorize(@Res() res): void {
     const baseUrl: string = 'https://github.com/login/oauth/authorize';
@@ -27,6 +35,10 @@ export class AppController {
     res.redirect(encodeURI(baseUrl + `?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scope}`));
   }
 
+  /**
+   * Endpoint: /create
+   * Handles exchanging of code to access_token and creates repository with sample code.
+   */
   @Get('create')
   async createRepo(@Req() req, @Res() res): Promise<void> {
     var data = null;
@@ -56,7 +68,7 @@ export class AppController {
       var respData = await this.appService.createRepoUtil(req.query.token);
 
       if (respData.success) {
-        var isFileAdded = await this.appService.addSampleFiles(req.query.token, respData.repo);
+        var isFileAdded = await this.appService.addSampleFiles(req.query.token, respData.owner, respData.repo);
 
         if (isFileAdded) {
 
