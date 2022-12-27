@@ -110,8 +110,8 @@ export class AppService {
 
       let x = Math.random() * 1000000;
 
-      /** input.txt: sample code to add */
-      const content = readFileSync('./input.txt', 'utf-8');
+      /** sample.py: sample code to add */
+      const content = readFileSync('./sample.py', 'utf-8');
       const contentEncoded = Buffer.from(content, 'utf8').toString('base64');
 
       await octokit.repos.createOrUpdateFileContents({
