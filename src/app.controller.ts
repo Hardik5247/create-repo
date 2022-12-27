@@ -18,7 +18,7 @@ export class AppController {
       buttonOnClick: "window.location.href='authorize'",
     };
 
-    res.render('html/index.hbs', data);
+    res.render('views/index.hbs', data);
   }
 
   /**
@@ -98,6 +98,6 @@ export class AppController {
       }
     }
 
-    res.render('html/index.hbs', data);
+    res.render('views/index.hbs', data);
   }
 }
